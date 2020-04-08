@@ -46,13 +46,13 @@ class FileViewSet(generics.ListCreateAPIView):
     def post(self, request, *args, **kwargs):
         begin_time = time.time()
         files = request.FILES.getlist('path')
-        print(files)
-        # file_list = []
-        # # file_list = [File(name=f.name.rstrip('"'), path=f) for f in files]
-        # for f in files:
-        #     file_list.append(File(name=f.name.rstrip('"'), path=f))
-        # File.objects.bulk_create(file_list)
-        # print(time.time()-begin_time)
+        # print(files)
+        file_list = []
+        # file_list = [File(name=f.name.rstrip('"'), path=f) for f in files]
+        for f in files:
+            file_list.append(File(name=f.name, path=f))
+        File.objects.bulk_create(file_list)
+        print(time.time()-begin_time)
     
     def create(self, data, *args, **kwargs):
         serializer = self.get_serializer(data=data)

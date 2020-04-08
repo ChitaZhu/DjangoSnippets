@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+STATIC_ROOT = os.path.join(BASE_DIR,'img')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -28,12 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Storage
-# MINIO_SERVER = '127.0.0.1:9000' 
-# MINIO_ACCESSKEY = 'minioadmin' 
-# MINIO_SECRET = 'minioadmin' 
-# MINIO_BUCKET = 'bucket' 
-# MINIO_SECURE = False
-# DEFAULT_FILE_STORAGE = 'mysite.MinIOStorage.MinioStorage' 
+MINIO_SERVER = '127.0.0.1:9000' 
+MINIO_ACCESSKEY = 'minioadmin' 
+MINIO_SECRET = 'minioadmin' 
+MINIO_BUCKET = 'bucket-test' 
+MINIO_SECURE = False
+DEFAULT_FILE_STORAGE = 'mysite.MinIOStorage.MinioStorage' 
 
 # Application definition
 
@@ -150,3 +150,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = 'img'
